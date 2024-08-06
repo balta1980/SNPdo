@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>723</width>
+    <height>376</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Nomina</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/prefijo/rect841.ico</normaloff>:/prefijo/rect841.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+   font: 10pt;
+	
+}
+QDateEdit{}
+QDateEdit:focus{background-color: rgb(255, 255, 127);}
+
+QTextEdit{}
+QTextEdit:focus{background-color: rgb(255, 255, 127);}
+
+QPlainTextEdit{}
+QPlainTextEdit:focus{background-color: rgb(255, 255, 127);}
+
+QLineEdit{}
+QLineEdit:focus{background-color: rgb(255, 255, 127);}
+
+QComboBox{}
+QComboBox:focus{background-color: rgb(255, 255, 127);}
+
+QDoubleSinBox{}
+QDoubleSpinBox:focus{background-color: rgb(255, 255, 127);}
+
+QTimeEdit{}
+QTimeEdit:focus{background-color: rgb(255, 255, 127);}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>12000000</width>
+        <height>12000000</height>
+       </size>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+      </property>
+      <property name="viewMode">
+       <enum>QMdiArea::SubWindowView</enum>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>723</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionImportar_BD"/>
+    <addaction name="actionGuardar_BD_como"/>
+    <addaction name="separator"/>
+    <addaction name="actionCerrar"/>
+   </widget>
+   <widget class="QMenu" name="menuDefiniciones">
+    <property name="title">
+     <string>Definiciones</string>
+    </property>
+    <addaction name="actionDatos_de_la_sociedad"/>
+    <addaction name="actionPeriodos"/>
+    <addaction name="actionD_as_No_laborables"/>
+    <addaction name="actionDefinir_vacaciones"/>
+    <addaction name="actionDefinir_salario_m_nimo"/>
+    <addaction name="actionDefinir_tabla_ISLR"/>
+    <addaction name="actionListado_de_nacionalidades"/>
+    <addaction name="actionConfigurar_correo_de_n_mina"/>
+   </widget>
+   <widget class="QMenu" name="menuTrabajadores">
+    <property name="title">
+     <string>Trabajadores</string>
+    </property>
+    <addaction name="actionListado_de_trabajadores"/>
+   </widget>
+   <widget class="QMenu" name="menuVariaciones">
+    <property name="title">
+     <string>Variaciones</string>
+    </property>
+    <widget class="QMenu" name="menuHoras_extraordinarias">
+     <property name="title">
+      <string>Horas extraordinarias</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/hora_extra.png</normaloff>iconos/hora_extra.png</iconset>
+     </property>
+     <addaction name="actionRegistro_de_horas_extra"/>
+     <addaction name="actionListado_de_horas_extra"/>
+    </widget>
+    <widget class="QMenu" name="menuInasistencias">
+     <property name="title">
+      <string>Inasistencias</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/falta.png</normaloff>iconos/falta.png</iconset>
+     </property>
+     <addaction name="actionRegistro_de_inasistencia_2"/>
+     <addaction name="actionListado_de_inasistencias"/>
+    </widget>
+    <widget class="QMenu" name="menuRegistro_de_comisi_n">
+     <property name="title">
+      <string>Comisiones</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/or.png</normaloff>iconos/or.png</iconset>
+     </property>
+     <addaction name="actionRegistro_de_comisi_n"/>
+     <addaction name="actionListado_de_comisiones"/>
+    </widget>
+    <widget class="QMenu" name="menuOtras_remuneraciones">
+     <property name="title">
+      <string>Otras remuneraciones</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/or.png</normaloff>iconos/or.png</iconset>
+     </property>
+     <addaction name="actionRegistro_de_otra_remuneraci_n_2"/>
+     <addaction name="actionListado_otras_remun"/>
+    </widget>
+    <widget class="QMenu" name="menuRemuneraci_n_otros_empleadores">
+     <property name="title">
+      <string>Remuneración otros empleadores</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/or.png</normaloff>iconos/or.png</iconset>
+     </property>
+     <addaction name="actionRegistro_rem_otro_empleador"/>
+     <addaction name="actionListado_rem_otro_empleador"/>
+    </widget>
+    <widget class="QMenu" name="menuIndemnizaciones_laborales">
+     <property name="title">
+      <string>Indemnizaciones laborales</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/or.png</normaloff>iconos/or.png</iconset>
+     </property>
+     <addaction name="actionRegistro_indemnizaciones"/>
+     <addaction name="actionListado_de_indemnizaciones_abiertas"/>
+    </widget>
+    <addaction name="menuHoras_extraordinarias"/>
+    <addaction name="menuInasistencias"/>
+    <addaction name="menuRegistro_de_comisi_n"/>
+    <addaction name="menuOtras_remuneraciones"/>
+    <addaction name="menuRemuneraci_n_otros_empleadores"/>
+    <addaction name="menuIndemnizaciones_laborales"/>
+    <addaction name="actionRegistro_de_salario_nuevo"/>
+    <addaction name="actionRegistro_de_salario_por_lote"/>
+    <addaction name="actionRegistro_de_pr_stamo_adelanto"/>
+    <addaction name="actionRegistro_de_dotaci_n"/>
+   </widget>
+   <widget class="QMenu" name="menuBeneficios">
+    <property name="title">
+     <string>Beneficios</string>
+    </property>
+    <addaction name="actionCostos_laborales"/>
+    <addaction name="actionBeneficios_seg_n_ley"/>
+   </widget>
+   <widget class="QMenu" name="menuN_mina">
+    <property name="title">
+     <string>Nómina</string>
+    </property>
+    <addaction name="actionN_mina_quincenal"/>
+    <addaction name="actionN_mina_Individual"/>
+    <addaction name="actionPago_utilidades"/>
+    <addaction name="actionLiquidaci_n"/>
+   </widget>
+   <widget class="QMenu" name="menuReportes">
+    <property name="title">
+     <string>Reportes</string>
+    </property>
+    <addaction name="actionFormato_de_asistencia"/>
+    <addaction name="actionInforme_TSS"/>
+    <addaction name="actionResumen_de_recibos"/>
+    <addaction name="actionCarta_de_trabajo"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionContenido_de_la_Ayuda"/>
+    <addaction name="actionAcerca_de_SNP"/>
+    <addaction name="actionHaga_una_donaci_n"/>
+   </widget>
+   <widget class="QMenu" name="menuVentana">
+    <property name="title">
+     <string>Ventana</string>
+    </property>
+    <widget class="QMenu" name="menuCambiar_tema_2">
+     <property name="title">
+      <string>Cambiar tema</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>iconos/style.png</normaloff>iconos/style.png</iconset>
+     </property>
+     <addaction name="actionClaro"/>
+     <addaction name="actionObscuro_2"/>
+    </widget>
+    <addaction name="actionCascada"/>
+    <addaction name="actionMosaico"/>
+    <addaction name="actionPantalla_completa"/>
+    <addaction name="menuCambiar_tema_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionVer_info"/>
+    <addaction name="separator"/>
+    <addaction name="actionBloquear"/>
+   </widget>
+   <widget class="QMenu" name="menuUsuarios">
+    <property name="title">
+     <string>Usuarios</string>
+    </property>
+    <addaction name="actionListado_de_usuarios"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuDefiniciones"/>
+   <addaction name="menuTrabajadores"/>
+   <addaction name="menuVariaciones"/>
+   <addaction name="menuBeneficios"/>
+   <addaction name="menuN_mina"/>
+   <addaction name="menuReportes"/>
+   <addaction name="menuUsuarios"/>
+   <addaction name="menuVentana"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Accesos</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPeriodos"/>
+   <addaction name="actionListado_de_trabajadores"/>
+   <addaction name="actionN_mina_quincenal"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>Info</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>255</width>
+          <height>368</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Cumpleaños
+del mes:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="cumple_mes">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Próximo período
+vacacional:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="prox_per_vac"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Días feriados
+del mes:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="feriados_mes"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Estatus de
+trabajadores:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="estatus_trab_info"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionCerrar">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/shutdown_off_close_exit_15253.png</normaloff>iconos/shutdown_off_close_exit_15253.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+  </action>
+  <action name="actionPeriodos">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/product_document_file_1512.png</normaloff>iconos/product_document_file_1512.png</iconset>
+   </property>
+   <property name="text">
+    <string>Periodos</string>
+   </property>
+  </action>
+  <action name="actionD_as_No_laborables">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/calendar_office_day_1474.png</normaloff>iconos/calendar_office_day_1474.png</iconset>
+   </property>
+   <property name="text">
+    <string>Días No laborables</string>
+   </property>
+  </action>
+  <action name="actionDefinir_vacaciones">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/fir-tree_icon-icons.com_49161.png</normaloff>iconos/fir-tree_icon-icons.com_49161.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definir vacaciones</string>
+   </property>
+  </action>
+  <action name="actionDefinir_salario_m_nimo">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/salmin.png</normaloff>iconos/salmin.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definir salario mínimo</string>
+   </property>
+  </action>
+  <action name="actionDefinir_tabla_ISLR">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/islr.png</normaloff>iconos/islr.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definir tabla ISLR</string>
+   </property>
+  </action>
+  <action name="actionDefinici_n_de_riesgo_laboral">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/tss.png</normaloff>iconos/tss.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definir factor de riesgo laboral</string>
+   </property>
+  </action>
+  <action name="actionListado_de_trabajadores">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/x-office-address-book_35984.png</normaloff>iconos/x-office-address-book_35984.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de trabajadores</string>
+   </property>
+  </action>
+  <action name="actionPlano">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/sol.png</normaloff>iconos/sol.png</iconset>
+   </property>
+   <property name="text">
+    <string>Plano</string>
+   </property>
+  </action>
+  <action name="actionObscuro">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/luna.png</normaloff>iconos/luna.png</iconset>
+   </property>
+   <property name="text">
+    <string>Obscuro</string>
+   </property>
+  </action>
+  <action name="actionCascada">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/cascada.png</normaloff>iconos/cascada.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cascada</string>
+   </property>
+  </action>
+  <action name="actionMosaico">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/mosaico.png</normaloff>iconos/mosaico.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mosaico</string>
+   </property>
+  </action>
+  <action name="actionClaro">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/sol.png</normaloff>iconos/sol.png</iconset>
+   </property>
+   <property name="text">
+    <string>Claro</string>
+   </property>
+  </action>
+  <action name="actionObscuro_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/luna.png</normaloff>iconos/luna.png</iconset>
+   </property>
+   <property name="text">
+    <string>Obscuro</string>
+   </property>
+  </action>
+  <action name="actionConfigurar_correo_de_n_mina">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/correo.png</normaloff>iconos/correo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Configurar correo de nómina</string>
+   </property>
+  </action>
+  <action name="actionBloquear">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/bloquear.png</normaloff>iconos/bloquear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bloquear</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_salario_nuevo">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/salario_nuevo.png</normaloff>iconos/salario_nuevo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de salario nuevo</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_dotaci_n">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/dota.png</normaloff>iconos/dota.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de dotación</string>
+   </property>
+  </action>
+  <action name="actionCostos_laborales">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/legal.png</normaloff>iconos/legal.png</iconset>
+   </property>
+   <property name="text">
+    <string>Costos legales parafiscales</string>
+   </property>
+  </action>
+  <action name="actionBeneficios_seg_n_ley">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/beneficios.png</normaloff>iconos/beneficios.png</iconset>
+   </property>
+   <property name="text">
+    <string>Beneficios según ley</string>
+   </property>
+  </action>
+  <action name="actionN_mina_quincenal">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/nomina.png</normaloff>iconos/nomina.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nómina quincenal</string>
+   </property>
+  </action>
+  <action name="actionLiquidaci_n">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/liquidacion.png</normaloff>iconos/liquidacion.png</iconset>
+   </property>
+   <property name="text">
+    <string>Terminación del contrato de trab</string>
+   </property>
+  </action>
+  <action name="actionPago_utilidades">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/utilidades.png</normaloff>iconos/utilidades.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nómina part. los beneficios</string>
+   </property>
+  </action>
+  <action name="actionN_mina_extraordinaria">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/especial.png</normaloff>iconos/especial.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nómina extraordinaria</string>
+   </property>
+  </action>
+  <action name="actionFormato_de_asistencia">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/formato.png</normaloff>iconos/formato.png</iconset>
+   </property>
+   <property name="text">
+    <string>Formato de asistencia</string>
+   </property>
+  </action>
+  <action name="actionInforme_TSS">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/tss.png</normaloff>iconos/tss.png</iconset>
+   </property>
+   <property name="text">
+    <string>Informe TSS</string>
+   </property>
+  </action>
+  <action name="actionN_mina_Individual">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/nom_ind.png</normaloff>iconos/nom_ind.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nómina Individual</string>
+   </property>
+  </action>
+  <action name="actionVer_info">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Ver info</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_salario_por_lote">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/salario_lote.png</normaloff>iconos/salario_lote.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de salario por lote</string>
+   </property>
+  </action>
+  <action name="actionDatos_de_la_sociedad">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/sociedad.png</normaloff>iconos/sociedad.png</iconset>
+   </property>
+   <property name="text">
+    <string>Datos de la sociedad</string>
+   </property>
+  </action>
+  <action name="actionListado_de_usuarios">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/usuarios.png</normaloff>iconos/usuarios.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de usuarios</string>
+   </property>
+  </action>
+  <action name="actionListado_de_nacionalidades">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/tss.png</normaloff>iconos/tss.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de nacionalidades</string>
+   </property>
+  </action>
+  <action name="actionResumen_de_recibos">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/recibos_resumen.png</normaloff>iconos/recibos_resumen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Resumen de recibos</string>
+   </property>
+  </action>
+  <action name="actionCarta_de_trabajo">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/cartas.png</normaloff>iconos/cartas.png</iconset>
+   </property>
+   <property name="text">
+    <string>Carta de trabajo</string>
+   </property>
+  </action>
+  <action name="actionPantalla_completa">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/full-screen.png</normaloff>iconos/full-screen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pantalla completa</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_pr_stamo_adelanto">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/prestamo.png</normaloff>iconos/prestamo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de préstamo/adelanto</string>
+   </property>
+  </action>
+  <action name="actionContenido_de_la_Ayuda">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/ayuda.png</normaloff>iconos/ayuda.png</iconset>
+   </property>
+   <property name="text">
+    <string>Contenido de la Ayuda</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de_SNP">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/acercade.png</normaloff>iconos/acercade.png</iconset>
+   </property>
+   <property name="text">
+    <string>Acerca de SNP</string>
+   </property>
+  </action>
+  <action name="actionHaga_una_donaci_n">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/paypal.png</normaloff>iconos/paypal.png</iconset>
+   </property>
+   <property name="text">
+    <string>Por favor haga una donación</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_horas_extra">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de horas extra</string>
+   </property>
+  </action>
+  <action name="actionListado_de_horas_extra">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de horas extra</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_inasistencia_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de inasistencia</string>
+   </property>
+  </action>
+  <action name="actionListado_de_inasistencias">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de inasistencias</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_comisi_n">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de comisión</string>
+   </property>
+  </action>
+  <action name="actionListado_de_comisiones">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de comisiones</string>
+   </property>
+  </action>
+  <action name="actionRegistro_de_otra_remuneraci_n_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de otra remuneración</string>
+   </property>
+  </action>
+  <action name="actionListado_otras_remun">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado otras remun</string>
+   </property>
+  </action>
+  <action name="actionRegistro_rem_otro_empleador">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro rem otro empleador</string>
+   </property>
+  </action>
+  <action name="actionListado_rem_otro_empleador">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado rem otro empleador</string>
+   </property>
+  </action>
+  <action name="actionGuardar_BD_como">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/exportar.png</normaloff>iconos/exportar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Guardar base de datos como...</string>
+   </property>
+  </action>
+  <action name="actionImportar_BD">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/importar.png</normaloff>iconos/importar.png</iconset>
+   </property>
+   <property name="text">
+    <string>Importar base de datos...</string>
+   </property>
+  </action>
+  <action name="actionRegistro_indemnizaciones">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/agrega.png</normaloff>iconos/agrega.png</iconset>
+   </property>
+   <property name="text">
+    <string>Registro de indemnización</string>
+   </property>
+  </action>
+  <action name="actionListado_de_indemnizaciones_abiertas">
+   <property name="icon">
+    <iconset>
+     <normaloff>iconos/listado.png</normaloff>iconos/listado.png</iconset>
+   </property>
+   <property name="text">
+    <string>Listado de indemnizaciones abiertas</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="recurso.qrc"/>
+ </resources>
+ <connections/>
+</ui>

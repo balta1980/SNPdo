@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="imgen">
+    <file>rect841.png</file>
+  </qresource>
+</RCC>

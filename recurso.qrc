@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="prefijo">
+    <file>rect841.ico</file>
+  </qresource>
+</RCC>
