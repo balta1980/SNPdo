@@ -87,7 +87,7 @@ class MainWindowApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.mdiArea.subWindowActivated.connect(self.verifica_menu)
 
 
-        #short cuts
+        #shortcuts
         self.actionPantalla_completa.setShortcut("F11")
         self.actionBloquear.setShortcut("F12")
         self.actionPeriodos.setShortcut("F2")
